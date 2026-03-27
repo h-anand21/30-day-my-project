@@ -17,7 +17,7 @@
         <div class="weather">
             <img src="images/rain.png" class="weather-icon">
             <h1 class="temp">22°C</h1>
-            <h2 class="city">Delhi</h2>
+            <h2 class="city">Kolkata </h2>
             <div class="detail">
                 <div class="col">
                     <img src="images/humidity.png" alt="">
@@ -44,6 +44,7 @@
 
         const searchBox = document.querySelector(".search input")
         const searchBtn = document.querySelector(".search button")
+        const weather_icon = document.querySelector(".weather-icon")
         async function checkweather(city) {
             const response = await fetch(apiUrl+city+`&appid=${apiKey}`);
             var data = await response.json();
@@ -51,15 +52,34 @@
             console.log(data);
 
             document.querySelector(".city").innerHTML=data.name;
-            document.querySelector(".tepm").innerHTML=Math.round(data.main.temp)+"°C";
+            document.querySelector(".temp").innerHTML=data.main.temp +"°C";
             document.querySelector(".humidity").innerHTML=data.main.humidity +"%";
             document.querySelector(".wind").innerHTML=data.wind.speed +"km/h";
         
+            if (data.weather[0].main == "Clouds"){
+                weather_icon.src ="images/clouds.png"
+            }
+            else if (data.weather[0].main == "Rain"){
+                weather_icon.src ="images/rain.png"
+            }
+            else if (data.weather[0].main == "Drizzle"){
+                weather_icon.src ="images/drizzle.png"
+            }
+            else if (data.weather[0].main == "Mist"){
+                weather_icon.src ="images/mist.png"
+            }
+            else if (data.weather[0].main == "Snow"){
+                weather_icon.src ="images/snow.png"
+            }
+            else if (data.weather[0].main == "Clear"){
+                weather_icon.src ="images/clear.png"
+            }
+
         }
 
-        
-
-        checkweather();
+        searchBtn.addEventListener("click", ()=>{
+            checkweather(searchBox.value)
+        })
     </script>
 </body>
 
