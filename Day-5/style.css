@@ -44,7 +44,7 @@
   cursor: pointer;
 }
 
-.input-tab {
+.input-box {
   position: relative;
   width: 100%;
   max-width: 500px;
@@ -57,7 +57,7 @@
   border-radius: 5px;
 }
 
-.input-tab img {
+.input-box img {
   width: 25px;
   position: absolute;
   bottom: 15px;
