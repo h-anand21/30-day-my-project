@@ -23,17 +23,14 @@
             <img src="./600x600bf-60.jpg" class="song-img">
             <h1>Choo Loo</h1>
             <p>The Local Train</p>
-            <audio controls>
+            <audio  id="song"> // controls
                 <source src="./Choo Lo - Aalas Ka Pedh 128 Kbps.mp3" type="audio/mpeg">
             </audio>
             <input type="range" value="0" id="progress">
-
             <div class="controls">
-                <div>
-                    <i class="fa-solid fa-backward"></i>
-                </div>
-                <div>
-                    <i class="fa-solid fa-play"></i>
+                <div><i class="fa-solid fa-backward"></i></div>
+                <div onclick="playPause()">
+                    <i class="fa-solid fa-play" id="ctrlIcon"></i>
                 </div>
                 <div>
                     <i class="fa-solid fa-forward"></i>
