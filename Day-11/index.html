@@ -3,23 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Stopwatch</title>
+    <title>Modern Stopwatch</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <div class="container">
-        <h1 id="display">00:00:00</h1>
+        <h1 class="title">⏱ Stopwatch</h1>
+
+        <div id="display">00:00:00:000</div>
 
         <div class="buttons">
-            <button onclick="start()">Start</button>
-            <button onclick="pause()">Pause</button>
-            <button onclick="reset()">Reset</button>
+            <button id="startBtn">Start</button>
+            <button id="pauseBtn">Pause</button>
+            <button id="resetBtn">Reset</button>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
-<script src="./script.js"></script>
+
 </html>
