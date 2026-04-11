@@ -1,11 +1,82 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Playfair Display', serif;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
-body{
-  background: #002339;
+body {
+  background: #ffffff;
+  color: #000;
+  transition: 0.3s;
+}
+
+/* DARK MODE */
+body.dark {
+  background: #121212;
   color: #fff;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: inherit;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+}
+
+/* Toggle Button */
+.toggle {
+  cursor: pointer;
+}
+
+.toggle img {
+  width: 30px;
+}
+
+/* Hero Section */
+.hero {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 40px;
+}
+
+.hero button {
+  padding: 10px 20px;
+  border: none;
+  background: black;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Dark button */
+body.dark .hero button {
+  background: white;
+  color: black;
 }
