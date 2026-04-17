@@ -23,9 +23,28 @@
 }
 
 .img-warp{
+  width: 20px;
     position: absolute;
     left: 0;
     top: 0;
     overflow: hidden;
+}
+
+span{
+  width: 1px;
+  height: 100%;
+  cursor: ew-resize;
+  position: absolute;
+  left: 20px;
+  top: 0;
+}
+
+.arrow  {
+  width: 40px;
+  position: absolute;
+  top: 50%;
+  margin-left: -20px;
+  margin-top: -20px;
+
 }
 
