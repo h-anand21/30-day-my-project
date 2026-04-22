@@ -2,34 +2,28 @@ const btcEl = document.getElementById('bitcoin');
 const ethEl = document.getElementById('ethereum');
 const dogeEl = document.getElementById('dogecoin');
 
-// API URLs
-const btcURL = 'https://api.coinpaprika.com/v1/tickers/btc-bitcoin';
-const ethURL = 'https://api.coinpaprika.com/v1/tickers/eth-ethereum';
-const dogeURL = 'https://api.coinpaprika.com/v1/tickers/doge-dogecoin';
+// CoinGecko API (single request 🔥)
+const API_URL =
+  'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,dogecoin&vs_currencies=usd';
 
-// fetch function
 async function getPrices() {
   try {
-    const [btcRes, ethRes, dogeRes] = await Promise.all([
-      fetch(btcURL),
-      fetch(ethURL),
-      fetch(dogeURL),
-    ]);
+    const res = await fetch(API_URL);
+    const data = await res.json();
 
-    const btcData = await btcRes.json();
-    const ethData = await ethRes.json();
-    const dogeData = await dogeRes.json();
-
-    btcEl.innerText = '$' + btcData.quotes.USD.price.toFixed(2);
-    ethEl.innerText = '$' + ethData.quotes.USD.price.toFixed(2);
-    dogeEl.innerText = '$' + dogeData.quotes.USD.price.toFixed(4);
+    btcEl.innerText = '$' + data.bitcoin.usd;
+    ethEl.innerText = '$' + data.ethereum.usd;
+    dogeEl.innerText = '$' + data.dogecoin.usd;
   } catch (error) {
-    console.log('Error fetching data:', error);
+    console.log('Error:', error);
+    btcEl.innerText = 'Error';
+    ethEl.innerText = 'Error';
+    dogeEl.innerText = 'Error';
   }
 }
 
-// call once
+// run once
 getPrices();
 
-// auto every 10 seconds
+// update every 10 sec
 setInterval(getPrices, 10000);
